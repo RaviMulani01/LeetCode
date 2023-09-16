@@ -1,0 +1,47 @@
+package leetcode.list;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class RomanToInteger {
+
+	public static void main(String[] args) {
+	String s = "I";
+	
+	int result = romanToInt(s);
+	
+	System.out.println("Value of Roman Number " + s + " is : " + result);
+	}
+	
+	public static int romanToInt(String s) {
+	       // Create a map to store the values of Roman numerals
+	        Map<Character, Integer> romanValues = new HashMap<>();
+	        romanValues.put('I', 1);
+	        romanValues.put('V', 5);
+	        romanValues.put('X', 10);
+	        romanValues.put('L', 50);
+	        romanValues.put('C', 100);
+	        romanValues.put('D', 500);
+	        romanValues.put('M', 1000);
+	        
+	        int result = 0;
+	        int prevValue = 0;
+
+	        // Iterate through the Roman numeral string from left to right
+	        for (int i = s.length() - 1; i >= 0; i--) {
+	            char currentChar = s.charAt(i);
+	            int currentValue = romanValues.get(currentChar);
+
+	            // Check if we need to subtract the current value
+	            if (currentValue < prevValue) {
+	                result -= currentValue;
+	            } else {
+	                result += currentValue;
+	            }
+
+	            prevValue = currentValue;
+	        }
+
+	        return result;
+	}
+}
