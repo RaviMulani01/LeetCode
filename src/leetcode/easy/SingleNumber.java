@@ -1,4 +1,4 @@
-package leetcode.list;
+package leetcode.easy;
 
 public class SingleNumber {
 

@@ -12,6 +12,7 @@ public class SpiralMatrix {
 	            {4, 5, 6},
 	            {7, 8, 9}
 	        };
+		
 	        List<Integer> result = spiralOrder(matrix);
 	        System.out.println(result);
 	}
